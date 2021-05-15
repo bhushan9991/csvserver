@@ -10,3 +10,17 @@ services:
           - 9393:9300
         environment:
             - CSVSERVER_BORDER=Orange
+
+    prometheus:
+        image: prom/prometheus:v2.22.0
+        container_name: "prometheus"
+        ports:
+        - 9090:9090
+        command:
+        - --config.file=/etc/prometheus/prometheus.yml
+        - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+        - '--web.console.templates=/usr/share/prometheus/consoles'
+        volumes:
+        - ${PWD}/prometheus:/etc/prometheus
+        depends_on:
+        - csvserver
