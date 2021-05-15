@@ -1,6 +1,8 @@
 # The csvserver
 
 ## Commands:
+- **Clone this repository to your machine and cd into the solution directory and perform all the steps from that directory**
+
 - **Docker images pull command:**
 ```
 docker pull infracloudio/csvserver:latest
