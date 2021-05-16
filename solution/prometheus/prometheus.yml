@@ -1,18 +1,11 @@
+global:
+  scrape_interval: 30s
+  scrape_timeout: 10s
+
 scrape_configs:
-  - job_name: prometheus
+  - job_name: services
     metrics_path: /metrics
-    scrape_interval: 5s
-    scrape_timeout: 5s
-    honor_labels: true
-
     static_configs:
-      - targets: ['prometheus:9090']
-
-  - job_name: csvserver
-    metrics_path: /metrics
-    scrape_interval: 5s
-    scrape_timeout: 5s
-    honor_labels: true
-
-    static_configs:
-      - targets: ['csvserver:9393']
+      - targets:
+        - 'prometheus:9090'
+        - 'csvserver:9300'
